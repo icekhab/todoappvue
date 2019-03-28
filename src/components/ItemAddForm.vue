@@ -1,23 +1,20 @@
 <template>
-  <form
-        class="item-add-form input-group mb-3"
-        @submit.prevent="submit"
-      >
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Todo's name"
-          aria-label="Todo's name"
-          v-model="name"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-primary"
-            type="submit"
+  <form @submit.prevent="submit">
+    <b-input-group>
+      <b-form-input 
+        placeholder="Todo's name"
+        aria-label="Todo's name"
+        v-model="name"
+      />
+      <b-input-group-append>
+        <b-button 
+          type="submit" 
+          variant="primary"
           >
-            Add
-          </button>
-        </div>
+          Add
+        </b-button>
+      </b-input-group-append>
+    </b-input-group>
   </form>
 </template>
 

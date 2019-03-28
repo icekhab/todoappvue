@@ -1,23 +1,22 @@
 <template>
-   <div class="filter-panel">
-        <input
-          class="filter-panel__search form-control"
-          placeholder="Search todo"
-          v-model="searchStr"
-          @keyup="changeFilter"
-        />
-        
-        <button
-          type="button"
-          class="filter-panel__btn btn"
-          v-for="(item, index) in actionFilters"
-          :class="getActionFilterClasses(index)"
-          :key="item.id"
-          @click="changeActionFilter(item, index)"
-          >
-            {{item.name}}
-        </button>
-    </div>
+  <div class="filter-panel">
+    <b-form-input 
+      class="filter-panel__search"
+      placeholder="Search todo"
+      v-model="searchStr"
+      @keyup="changeFilter"
+    />
+
+    <b-button
+      class="filter-panel__btn btn"
+      v-for="(item, index) in actionFilters"
+      :variant="getActionFilterVariant(index)"
+      :key="item.id"
+      @click="changeActionFilter(item, index)"
+      >
+      {{item.name}}
+    </b-button>
+  </div>
 </template>
 
 <script>
@@ -71,13 +70,10 @@ export default {
       this.setFilters(filters);
     },
 
-    getActionFilterClasses: function(index) {
+    getActionFilterVariant: function(index) {
       const isSelected = index === this.selectedActionFilter;
 
-      return {
-        "btn-info": isSelected,
-        "btn-outline-info": !isSelected,
-      };
+      return isSelected ? "info" : "outline-info";
     },
 
     getSearchByNameFilter: function() {

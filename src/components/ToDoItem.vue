@@ -1,27 +1,29 @@
 <template>
   <div class="todo-list-item">
-        <span
-          class="todo-list-item__text"
-          :class="textClasses"
-          @click="toggleDone(todo)"
-          >
-          {{ todo.name }}
-        </span>
-        <button
-          type="button"
-          class="todo-list-item__delete-btn btn btn-outline-danger"
-          @click="deleteItem(todo)"
-        >
-          <i class="fas fa-trash-alt" />
-        </button>
-        <button
-          type="button"
-          class="todo-list-item__important-btn btn btn-outline-success"
-          @click="toggleImportant(todo)"
-        >
-          <i class="fas fa-exclamation" />
-        </button>
-      </div>
+    <span
+      class="todo-list-item__text"
+      :class="textClasses"
+      @click="toggleDone(todo)"
+      >
+      {{ todo.name }}
+    </span>
+
+    <b-button 
+      variant="outline-danger"
+      class="todo-list-item__delete-btn"
+      @click="deleteItem(todo)"
+      >
+      <i class="fas fa-trash-alt" />
+    </b-button>
+
+    <b-button 
+      variant="outline-success"
+      class="todo-list-item__important-btn"
+      @click="toggleImportant(todo)"
+      >
+      <i class="fas fa-exclamation" />
+    </b-button>    
+  </div>
 </template>
 
 <script>

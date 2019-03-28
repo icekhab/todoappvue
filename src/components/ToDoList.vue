@@ -1,14 +1,13 @@
 <template>
-  <ul class="todo-list list-group">
-    <li 
-      class="todo-list__item list-group-item" 
-      is="ToDoItem"
+  <b-list-group class="todo-list">
+    <b-list-group-item 
+      class="todo-list__item" 
       v-for="item in todoList" 
-      :todo="item"
-      :key="item.id">
-
-    </li>
-  </ul>
+      :key="item.id"
+      >
+      <ToDoItem :todo="item" />
+    </b-list-group-item>
+  </b-list-group>
 </template>
 
 <script>
